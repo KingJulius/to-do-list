@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from 'react-native';
+import GoalItem from './components/GoalItem'
 
 export default function App() {
   // const [outputText, setOutputText] = useState('Not Pressed Button');
@@ -43,11 +44,7 @@ export default function App() {
       </ScrollView> */}
         <FlatList 
         keyExtractor={(item, index) => item.id} 
-        data={courseGoals} renderItem={itemData => (
-          <View style={styles.listItem}>
-            <Text>{itemData.item.value}</Text>
-          </View>
-          )}
+        data={courseGoals} renderItem={itemData => <GoalItem title={itemData.item.value}/>}
         /> 
     </View> 
     );
