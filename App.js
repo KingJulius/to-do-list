@@ -29,6 +29,10 @@ export default function App() {
     }); 
   };
 
+  const cancelGoalAdditionHandler = () => {
+    setAddMode(false);
+  };
+
   return (
     <View style={styles.screen}>
       <Button 
@@ -38,6 +42,7 @@ export default function App() {
       <GoalInput 
         onAddGoal={addGoalHandler}
         visible={isAddMode} 
+        onCancel={cancelGoalAdditionHandler}
       />
       {/* <ScrollView >
         {courseGoals.map((goal) => <View style={styles.listItem} key={goal}><Text>{goal}</Text></View>)}
