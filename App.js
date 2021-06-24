@@ -7,7 +7,7 @@ import GoalInput from './components/GoalInput';
 export default function App() {
   // const [outputText, setOutputText] = useState('Not Pressed Button');
   const [courseGoals, setCourseGoals] = useState([]); //Empty Array has been passed as initial value
-
+  const [isAddMode, setAddMode] = useState(false);
   // function goalInputHandler(enteredText){
   //   setEnteredGoal(enteredText);
   // }
@@ -20,6 +20,7 @@ export default function App() {
       ...courseGoals, 
       {id: Math.random().toString(), value: goalTitle}
     ]); // Supports Key and Id
+    setAddMode(false);
   };
 
   const removeGoalHandler = (goalId) => {
@@ -30,7 +31,14 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button 
+        title="Add New Goal" 
+        onPress={() => setAddMode(true)} 
+      />
+      <GoalInput 
+        onAddGoal={addGoalHandler}
+        visible={isAddMode} 
+      />
       {/* <ScrollView >
         {courseGoals.map((goal) => <View style={styles.listItem} key={goal}><Text>{goal}</Text></View>)}
       </ScrollView> */}
