@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
      buttonContainer:{
         justifyContent: 'space-around',
         flexDirection: 'row',
-        width: '60%'
+        width: '60%',
      },
      button:{
-        width: '40%'
+        width: '40%',
      },
 });
 
